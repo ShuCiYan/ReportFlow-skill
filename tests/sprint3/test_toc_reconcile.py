@@ -9,7 +9,7 @@ _,duplicate_valid,_=detect_chapter_starts(pages[:4]+['第一章｜市场背景']
 assert not duplicate_valid
 _,same_page_valid,_=detect_chapter_starts(['第一章｜市场背景\n第二章｜任务与客户','第三章｜竞争方案','第四章｜商业证据','第五章｜风险与边界'])
 assert not same_page_valid
-positive=['目录','摘要','摘要','1\n第一章｜市场背景','2\n第二章｜任务与客户','3\n第三章｜竞争方案','4\n第四章｜商业证据','5\n第五章｜风险与边界']
+positive=['目录','摘要','摘要','1 第一章｜市场背景','2 第二章｜任务与客户','3 第三章｜竞争方案','4 第四章｜商业证据','5 第五章｜风险与边界']
 starts,valid,_=detect_chapter_starts(positive)
 assert valid and starts['chapter-1']==4 and starts['chapter-5']==8
 print('TOC FALSE-POSITIVE TESTS = PASS')

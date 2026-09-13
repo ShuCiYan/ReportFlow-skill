@@ -3,13 +3,14 @@ import argparse,json,re
 from pypdf import PdfReader
 
 CN=['一','二','三','四','五']
-HEADING={f'chapter-{i}':re.compile(rf'^\s*第\s*{c}\s*章\s*[｜|:]') for i,c in enumerate(CN,1)}
+HEADING={f'chapter-{i}':re.compile(rf'^\s*第\s*{c}\s*章\s*[｜|:]|^\s*{i}\s+第\s*{c}\s*章\s*[｜|:]') for i,c in enumerate(CN,1)}
 
 def detect_chapter_starts(page_texts):
     """Detect only line-anchored chapter headings, never TOC/source mentions."""
     hits={k:[] for k in HEADING}
     for page_no,text in enumerate(page_texts,1):
-        if re.search(r'目录|table of contents|contents|资料来源|sources|附录|appendix', text or '', re.I):
+        first=' '.join((text or '').splitlines()[:3])
+        if re.search(r'目录|table of contents|contents', first, re.I) or re.match(r'^\s*(资料来源|sources|附录|appendix)', first, re.I):
             continue
         lines=[x.strip() for x in (text or '').splitlines() if x.strip()][:20]
         for line in lines:
