@@ -34,3 +34,46 @@ jobs:
             /tmp/renderer-metadata.json
             /tmp/html-qa.txt
           if-no-files-found: error
+  publication-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install --upgrade pip playwright pyyaml pillow pypdf
+      - run: python -m playwright install --with-deps chromium
+      - name: Install and verify Poppler rasterizer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends poppler-utils
+          which pdftoppm
+          pdftoppm -v 2>&1 | head -n 1
+      - name: Render regression fixture
+        run: |
+          python scripts/render_pdf.py tests/sprint3/regression-master.html --out /tmp/regression-master.pdf > /tmp/regression-renderer-metadata.json
+          python scripts/html_qa.py tests/sprint3/regression-master.html > /tmp/regression-html-qa.txt
+          python scripts/pdf_preflight.py /tmp/regression-master.pdf --out /tmp/regression-preflight.json
+          python scripts/rasterize_pdf.py /tmp/regression-master.pdf --out-dir /tmp/regression-pages
+          python scripts/contact_sheet.py /tmp/regression-pages --out /tmp/regression-contact-sheet.png
+          python scripts/toc_reconcile.py /tmp/regression-master.pdf --out /tmp/toc-reconciliation-report.json
+          cp /tmp/regression-master.pdf /tmp/regression-master-final.pdf
+      - name: Verify regression artifacts
+        run: |
+          test -s /tmp/regression-master-final.pdf
+          test -n "$(find /tmp/regression-pages -name '*.png' -print -quit)"
+          test -s /tmp/regression-contact-sheet.png
+          test -s /tmp/toc-reconciliation-report.json
+      - name: Upload regression publication artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reportflow-publication-regression
+          path: |
+            /tmp/regression-master-final.pdf
+            /tmp/regression-pages/*.png
+            /tmp/regression-contact-sheet.png
+            /tmp/regression-renderer-metadata.json
+            /tmp/regression-html-qa.txt
+            /tmp/regression-preflight.json
+            /tmp/toc-reconciliation-report.json
+          if-no-files-found: error
