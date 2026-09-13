@@ -7,11 +7,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: '3.11'}
-      - run: python -m pip install --upgrade pip playwright pyyaml
+      - run: python -m pip install --upgrade pip playwright pyyaml pillow
       - run: python -m playwright install --with-deps chromium
       - run: python scripts/assemble_master.py --manifest tests/sprint3/manifest.yaml --out /tmp/master.html
-      - run: python scripts/render_pdf.py /tmp/master.html --out /tmp/master.pdf
-      - run: python scripts/html_qa.py /tmp/master.html
+      - run: python scripts/render_pdf.py /tmp/master.html --out /tmp/master.pdf > /tmp/renderer-metadata.json
+      - run: python scripts/html_qa.py /tmp/master.html > /tmp/html-qa.txt
       - name: Install and verify Poppler rasterizer
         run: |
           sudo apt-get update
@@ -20,3 +20,17 @@ jobs:
           pdftoppm -v 2>&1 | head -n 1
       - run: python scripts/rasterize_pdf.py /tmp/master.pdf --out-dir /tmp/pages
       - run: test -s /tmp/master.pdf && test -n "$(find /tmp/pages -name '*.png' -print -quit)"
+      - name: Build contact sheet
+        run: python scripts/contact_sheet.py /tmp/pages --out /tmp/contact-sheet.png
+      - name: Upload publication artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reportflow-publication-artifacts
+          path: |
+            /tmp/master.pdf
+            /tmp/pages/*.png
+            /tmp/contact-sheet.png
+            /tmp/renderer-metadata.json
+            /tmp/html-qa.txt
+          if-no-files-found: error
