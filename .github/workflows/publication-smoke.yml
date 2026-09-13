@@ -12,5 +12,11 @@ jobs:
       - run: python scripts/assemble_master.py --manifest tests/sprint3/manifest.yaml --out /tmp/master.html
       - run: python scripts/render_pdf.py /tmp/master.html --out /tmp/master.pdf
       - run: python scripts/html_qa.py /tmp/master.html
+      - name: Install and verify Poppler rasterizer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends poppler-utils
+          which pdftoppm
+          pdftoppm -v 2>&1 | head -n 1
       - run: python scripts/rasterize_pdf.py /tmp/master.pdf --out-dir /tmp/pages
       - run: test -s /tmp/master.pdf && test -n "$(find /tmp/pages -name '*.png' -print -quit)"
