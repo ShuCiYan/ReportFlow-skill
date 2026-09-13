@@ -56,9 +56,11 @@ jobs:
           python scripts/rasterize_pdf.py /tmp/regression-master.pdf --out-dir /tmp/regression-pages
           python scripts/contact_sheet.py /tmp/regression-pages --out /tmp/regression-contact-sheet.png
           python scripts/toc_reconcile.py /tmp/regression-master.pdf --out /tmp/toc-reconciliation-report.json
+          python scripts/pdf_text_diagnostic.py /tmp/regression-master.pdf --out /tmp/regression-pdf-text-diagnostic.txt
           # second render after detection, then reconcile against the final PDF
           python scripts/render_pdf.py tests/sprint3/regression-master.html --out /tmp/regression-master-final.pdf > /tmp/regression-renderer-metadata-final.json
           python scripts/toc_reconcile.py /tmp/regression-master-final.pdf --out /tmp/toc-reconciliation-report-final.json
+          python scripts/pdf_text_diagnostic.py /tmp/regression-master-final.pdf --out /tmp/regression-pdf-text-diagnostic-final.txt
           mv /tmp/toc-reconciliation-report-final.json /tmp/toc-reconciliation-report.json
       - name: Verify regression artifacts
         run: |
@@ -80,4 +82,6 @@ jobs:
             /tmp/regression-html-qa.txt
             /tmp/regression-preflight.json
             /tmp/toc-reconciliation-report.json
+            /tmp/regression-pdf-text-diagnostic.txt
+            /tmp/regression-pdf-text-diagnostic-final.txt
           if-no-files-found: error
