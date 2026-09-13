@@ -56,7 +56,10 @@ jobs:
           python scripts/rasterize_pdf.py /tmp/regression-master.pdf --out-dir /tmp/regression-pages
           python scripts/contact_sheet.py /tmp/regression-pages --out /tmp/regression-contact-sheet.png
           python scripts/toc_reconcile.py /tmp/regression-master.pdf --out /tmp/toc-reconciliation-report.json
-          cp /tmp/regression-master.pdf /tmp/regression-master-final.pdf
+          # second render after detection, then reconcile against the final PDF
+          python scripts/render_pdf.py tests/sprint3/regression-master.html --out /tmp/regression-master-final.pdf > /tmp/regression-renderer-metadata-final.json
+          python scripts/toc_reconcile.py /tmp/regression-master-final.pdf --out /tmp/toc-reconciliation-report-final.json
+          mv /tmp/toc-reconciliation-report-final.json /tmp/toc-reconciliation-report.json
       - name: Verify regression artifacts
         run: |
           test -s /tmp/regression-master-final.pdf
@@ -73,6 +76,7 @@ jobs:
             /tmp/regression-pages/*.png
             /tmp/regression-contact-sheet.png
             /tmp/regression-renderer-metadata.json
+            /tmp/regression-renderer-metadata-final.json
             /tmp/regression-html-qa.txt
             /tmp/regression-preflight.json
             /tmp/toc-reconciliation-report.json
