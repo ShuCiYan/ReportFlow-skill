@@ -1,6 +1,6 @@
 interface:
-  display_name: "ReportFlow"
-  short_description: "证据驱动的研究报告全流程工作流"
+  display_name: "ReportFlow｜专业研究报告工作流"
+  short_description: "专业研究报告工作流：AI 研究、行业研究、竞品分析、证据追踪与长报告审核"
   default_prompt: "使用 $reportflow 从研究问题、证据管理到章节复核推进报告。"
 
 policy:

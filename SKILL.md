@@ -2,7 +2,7 @@
 name: reportflow
 description: Evidence-led workflow for framing, researching, writing, reviewing, and publishing decision-grade reports with AI assistance and human judgment.
 metadata:
-  short-description: ReportFlow｜证据驱动的研究报告全流程工作流
+  short-description: ReportFlow｜专业研究报告工作流
 ---
 
 # ReportFlow｜证据驱动的研究报告全流程工作流
