@@ -55,8 +55,11 @@ jobs:
           python scripts/pdf_preflight.py /tmp/regression-master.pdf --out /tmp/regression-preflight.json
           python scripts/rasterize_pdf.py /tmp/regression-master.pdf --out-dir /tmp/regression-pages
           python scripts/contact_sheet.py /tmp/regression-pages --out /tmp/regression-contact-sheet.png
+      - name: Capture rendered PDF text diagnostics
+        run: python scripts/pdf_text_diagnostic.py /tmp/regression-master.pdf --out /tmp/regression-pdf-text-diagnostic.txt
+      - name: Reconcile TOC against rendered headings
+        run: |
           python scripts/toc_reconcile.py /tmp/regression-master.pdf --out /tmp/toc-reconciliation-report.json
-          python scripts/pdf_text_diagnostic.py /tmp/regression-master.pdf --out /tmp/regression-pdf-text-diagnostic.txt
           # second render after detection, then reconcile against the final PDF
           python scripts/render_pdf.py tests/sprint3/regression-master.html --out /tmp/regression-master-final.pdf > /tmp/regression-renderer-metadata-final.json
           python scripts/toc_reconcile.py /tmp/regression-master-final.pdf --out /tmp/toc-reconciliation-report-final.json
@@ -68,6 +71,7 @@ jobs:
           test -n "$(find /tmp/regression-pages -name '*.png' -print -quit)"
           test -s /tmp/regression-contact-sheet.png
           test -s /tmp/toc-reconciliation-report.json
+          grep -q '"toc_reconciled": true' /tmp/toc-reconciliation-report.json
       - name: Upload regression publication artifacts
         if: always()
         uses: actions/upload-artifact@v4
@@ -75,6 +79,7 @@ jobs:
           name: reportflow-publication-regression
           path: |
             /tmp/regression-master-final.pdf
+            /tmp/regression-master.pdf
             /tmp/regression-pages/*.png
             /tmp/regression-contact-sheet.png
             /tmp/regression-renderer-metadata.json
