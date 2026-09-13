@@ -36,7 +36,7 @@ def build_ppt():
   s=prs.slides.add_slide(blank); add_text(s,title,.65,.45,12,0.6,26,BLUE,True)
   if subtitle: add_text(s,subtitle,.68,1.1,12,.45,13,MUTED); return s
   return s
- s=prs.slides.add_slide(blank); add_text(s,'中国具身智能机器人产业与代表企业商业化研究',.8,2.2,11.8,1.1,30,BLUE,True); add_text(s,'管理层简报｜闫纾慈　独立研究｜2026年9月11日',.85,3.55,11,.4,15,MUTED)
+ s=prs.slides.add_slide(blank); add_text(s,'中国具身智能机器人产业与代表企业商业化研究',.8,2.2,11.8,1.1,30,BLUE,True); add_text(s,'管理层简报｜独立研究｜2026年9月11日',.85,3.55,11,.4,15,MUTED)
  s=slide('本报告的核心判断','市场正在从技术展示走向任务验证与早期交易，但统一、可复制的规模商业化尚未被公开证据证明。')
  for i,(h,j) in enumerate([('现实市场','工业机器人已有可统计规模，人形机器人仍以离散交易和项目证据为主。'),('需求入口','制造、物流和平台采购出现真实事件，但交易性质并不相同。'),('竞争结构','人形机器人进入的是已有方案覆盖的预算，而非空白市场。'),('投资含义','重点跟踪交付、正常运行、复购和跨客户复制。')]):
   x=.8+(i%2)*6.1; y=2+(i//2)*1.8; sh=s.shapes.add_shape(1,Inches(x),Inches(y),Inches(5.4),Inches(1.25)); sh.fill.solid(); sh.fill.fore_color.rgb=LIGHT; sh.line.color.rgb=RGBColor(160,190,210); add_text(s,h,x+.25,y+.18,4.9,.3,17,BLUE,True); add_text(s,j,x+.25,y+.55,4.9,.5,12,RGBColor(35,45,55))
@@ -69,7 +69,7 @@ def build_ppt():
 def build_docx():
  d=Document(); sec=d.sections[0]; sec.top_margin=DInches(.7); sec.bottom_margin=DInches(.7); sec.left_margin=DInches(.85); sec.right_margin=DInches(.85)
  p=d.add_paragraph(); p.alignment=WD_ALIGN_PARAGRAPH.CENTER; r=p.add_run('中国具身智能机器人产业与代表企业商业化研究'); r.bold=True; r.font.size=DPt(22); r.font.name='Arial'
- p=d.add_paragraph(); p.alignment=WD_ALIGN_PARAGRAPH.CENTER; r=p.add_run('管理层简报｜闫纾慈　独立研究｜2026年9月11日'); r.font.size=DPt(11); r.font.color.rgb=__import__('docx').shared.RGBColor(96,116,135)
+ p=d.add_paragraph(); p.alignment=WD_ALIGN_PARAGRAPH.CENTER; r=p.add_run('管理层简报｜独立研究｜2026年9月11日'); r.font.size=DPt(11); r.font.color.rgb=__import__('docx').shared.RGBColor(96,116,135)
  d.add_heading('执行摘要',level=1); d.add_paragraph('市场正在从技术展示走向任务验证与早期交易，但统一、可复制的规模商业化尚未被公开证据证明。工业机器人已有可统计市场，人形机器人仍以离散交易、订单、交付和项目验证作为现实锚点。')
  d.add_heading('四项管理层结论',level=1)
  for t in ['现实市场：先区分可统计的工业机器人与离散的人形机器人交易。','需求入口：制造、物流和研发平台采购均可能是真实需求，但商业含义不同。','竞争结构：人形机器人面对的是工业机器人、机械臂、AMR、专机和人工等现有方案。','投资含义：跟踪交付、正常运行、复购与跨客户复制，不把远期预测当作已实现规模。']: d.add_paragraph(t,style='List Bullet')

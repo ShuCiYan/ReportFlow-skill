@@ -1,0 +1,32 @@
+project_id: long-project-fixture
+stage: progressive_review
+depth: publication
+active_artifact: evidence-ledger.csv
+last_checkpoint: chapter-6-review
+open_gates:
+  - chapter-6-evidence
+status: active
+chapters:
+  - id: chapter-1
+    status: approved
+  - id: chapter-2
+    status: approved
+  - id: chapter-3
+    status: final
+  - id: chapter-4
+    status: reviewing
+  - id: chapter-5
+    status: approved
+  - id: chapter-6
+    status: reopened
+    reason: upstream market-definition change
+  - id: chapter-7
+    status: draft
+  - id: chapter-8
+    status: draft
+dependencies:
+  - upstream: chapter-2
+    downstream: [chapter-5, chapter-6]
+unresolved_evidence_gaps:
+  - claim: customer repeat purchase
+    status: disclosure_gap

@@ -1,0 +1,15 @@
+project: Multi-chapter industry research fixture
+stage: progressive_review
+depth: publication
+active_artifact: evidence-ledger.csv
+open_gates:
+- chapter-6-evidence
+last_checkpoint: chapter-6-review
+decisions:
+- stage: scope
+  decision: market boundary locked
+- stage: review
+  decision: reopen chapter-6
+  rationale: chapter-2 definition changed
+next_action: close chapter-6-evidence gate
+

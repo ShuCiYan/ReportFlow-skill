@@ -1,0 +1,11 @@
+fixture: xlsx-fixture.xlsx
+sheet: Orders
+metric: Revenue (CNY)
+unit: CNY
+operation: sum and mean over non-missing values
+missing_value_rule: exclude missing numeric cells and record the count
+expected_rows: 4
+expected_non_null: 4
+expected_sum: 77000
+expected_mean: 19250
+source_unchanged: true

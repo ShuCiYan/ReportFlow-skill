@@ -1,0 +1,6 @@
+decisions:
+  - stage: scope
+    decision: market boundary locked
+  - stage: review
+    decision: reopen chapter-6
+    rationale: chapter-2 definition changed
