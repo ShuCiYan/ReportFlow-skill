@@ -1,0 +1,4 @@
+decisions:
+- stage: brainstorm
+  decision: depth=standard
+  rationale: inferred from request and deliverable

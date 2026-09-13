@@ -1,0 +1,5 @@
+title: ReportFlow Sprint 3 Test
+subtitle: Publication pipeline smoke test
+stylesheets: []
+chapters:
+  - tests/sprint3/sample_chapter.html

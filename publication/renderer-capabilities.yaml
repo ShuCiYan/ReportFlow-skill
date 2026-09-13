@@ -1,0 +1,6 @@
+renderers:
+  - {name: playwright-chromium, availability: optional, install_complexity: medium, html_css_fidelity: high, paged_media_support: medium, svg_support: high, recommended_use: default modern browser path, limitations: browser binary download required}
+  - {name: system-chromium, availability: detected, install_complexity: low, html_css_fidelity: high, paged_media_support: medium, svg_support: high, recommended_use: reuse installed browser, limitations: platform-dependent flags}
+  - {name: weasyprint, availability: optional, install_complexity: medium-high, html_css_fidelity: medium, paged_media_support: high, svg_support: high, recommended_use: print CSS and paged media, limitations: native dependencies}
+  - {name: wkhtmltopdf, availability: optional, install_complexity: medium, html_css_fidelity: low, paged_media_support: low, svg_support: medium, recommended_use: legacy compatibility only, limitations: older web engine}
+routing_rule: choose by capability_and_availability; record preferred_renderer, actual_renderer, fallback_reason

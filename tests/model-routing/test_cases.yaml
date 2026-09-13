@@ -1,0 +1,5 @@
+cases:
+  - {input: "分析一家SaaS公司留存下降并提出验证方案", expected: [cohort, interview], reject: [hook]}
+  - {input: "研究工业机器人行业竞争与价值链", expected: [value-chain, porter-five-forces]}
+  - {input: "判断一个新功能是否改善转化", expected: [ab-test], require_condition: randomized assignment}
+  - {input: "分析人形机器人项目TCO", expected: [unit-economics, scenario-sensitivity], reject: [pmf, hook]}

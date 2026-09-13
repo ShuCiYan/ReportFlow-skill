@@ -1,0 +1,27 @@
+project_id: test-publication-space
+stage: reviewing
+depth: publication
+active_artifact: chapter-review.md
+last_checkpoint: evidence-gate-failed
+open_gates:
+- dependency
+- evidence
+chapters:
+- chapter: 2
+  status: reopened
+  changed_definition: true
+- chapter: 5
+  status: reopened
+  dependency: chapter-2-definition
+- chapter: 8
+  status: reopened
+  dependency: chapter-2-definition
+- chapter: 12
+  status: reopened
+  dependency: chapter-2-definition
+status: active
+chapter_gate: FAIL
+gate_reasons:
+- C2:DISPUTED
+- C3:DISCLOSURE_GAP
+dependency_check: REQUIRED

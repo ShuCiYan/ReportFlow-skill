@@ -1,0 +1,4 @@
+claim_id,claim_text,importance,answer_status,evidence_ids,claim_strength,unknowns,boundary
+C1,行业发射需求存在,core,EVIDENCE_SUPPORTED,E1,limited,年度可比分母未知,不得外推市场份额
+C2,某环节已形成规模利润,core,DISPUTED,E2;E3,too_strong,利润口径冲突,不得进入approved
+C3,客户复购率,core,DISCLOSURE_GAP,,unanswerable,无公开数据,不得补估

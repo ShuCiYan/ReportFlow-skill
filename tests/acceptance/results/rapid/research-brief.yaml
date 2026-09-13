@@ -1,0 +1,23 @@
+topic: 瑞幸与库迪竞品分析
+audience: 老板/管理层
+decision_goal: 判断自有咖啡品牌应学习什么
+scope: ''
+geography: ''
+time_range: ''
+depth: rapid
+architecture:
+- 竞争对象与用户选择
+- 产品/渠道差异与经营结果
+- 可迁移经验与不可复制因素
+- 行动优先级与验证指标
+priority:
+  core:
+  - 竞争对象与用户选择
+  - 产品/渠道差异与经营结果
+  supporting:
+  - 可迁移经验与不可复制因素
+  - 行动优先级与验证指标
+  context: []
+evidence_needs: []
+deliverables:
+- brief

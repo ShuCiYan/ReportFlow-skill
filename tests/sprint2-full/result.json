@@ -1,0 +1,8 @@
+{
+  "input_file": "tests/sprint2-full/test_data.csv",
+  "rows": 3,
+  "non_null": 3,
+  "sum": 45.0,
+  "mean": 15.0,
+  "column": "orders"
+}

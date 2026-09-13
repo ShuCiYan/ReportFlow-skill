@@ -1,0 +1,21 @@
+models:
+  - {id: porter-five-forces, name: Porter Five Forces, category: strategy, status: core, purpose: industry structure and bargaining power, selection_signals: [industry, competition, suppliers, buyers]}
+  - {id: value-chain, name: Value Chain, category: strategy, status: core, purpose: map activities and value capture, selection_signals: [supply chain, delivery, value capture]}
+  - {id: pestel, name: PESTEL, category: strategy, status: core, purpose: external environment scan, selection_signals: [policy, macro, regulation]}
+  - {id: swot, name: SWOT, category: strategy, status: core, purpose: bounded synthesis of evidence, selection_signals: [strength, weakness, opportunity, risk]}
+  - {id: ansoff, name: Ansoff Matrix, category: strategy, status: extended, purpose: growth direction, selection_signals: [market entry, expansion]}
+  - {id: tam-sam-som, name: TAM/SAM/SOM, category: market, status: core, purpose: market boundary and sizing, selection_signals: [market size, opportunity, sizing]}
+  - {id: stp, name: STP, category: market, status: core, purpose: segmentation targeting positioning, selection_signals: [segment, target customer, positioning]}
+  - {id: jtbd, name: Jobs-to-be-Done, category: product, status: core, purpose: customer task and desired outcome, selection_signals: [customer need, job, task, pain]}
+  - {id: kano, name: KANO, category: product, status: core, purpose: feature satisfaction classification, selection_signals: [feature, satisfaction, must-have]}
+  - {id: rice, name: RICE, category: product, status: core, purpose: prioritization under explicit assumptions, selection_signals: [prioritize, roadmap, impact]}
+  - {id: pmf, name: PMF decomposition, category: product, status: core, purpose: test product-market fit dimensions, selection_signals: [retention, usage, repeat, product market fit]}
+  - {id: mvp, name: MVP, category: product, status: core, purpose: minimum-cost hypothesis test, selection_signals: [hypothesis, prototype, minimum]}
+  - {id: unit-economics, name: Unit Economics, category: finance, status: core, purpose: per-customer economics, selection_signals: [CAC, LTV, margin, payback, unit economics]}
+  - {id: pricing, name: Pricing Analysis, category: finance, status: core, purpose: price structure and willingness to pay, selection_signals: [price, pricing, willingness to pay]}
+  - {id: scenario-sensitivity, name: Scenario/Sensitivity, category: finance, status: core, purpose: test assumptions and ranges, selection_signals: [scenario, sensitivity, uncertainty]}
+  - {id: ab-test, name: A/B Test, category: validation, status: core, purpose: randomized comparison where feasible, selection_signals: [experiment, conversion, causal]}
+  - {id: interview, name: User Interview, category: validation, status: core, purpose: discover needs and friction, selection_signals: [interview, qualitative, feedback]}
+  - {id: cohort, name: Cohort Analysis, category: validation, status: extended, purpose: retention and behavior over time, selection_signals: [retention, cohort, repeat]}
+  - {id: hook, name: Hook Model, category: product, status: experimental, purpose: habit loop analysis for recurring consumer use, selection_signals: [habit, engagement, consumer]}
+  - {id: human-goods-place, name: 人货场, category: market, status: extended, purpose: retail and commerce operating view, selection_signals: [零售, 电商, 门店]}

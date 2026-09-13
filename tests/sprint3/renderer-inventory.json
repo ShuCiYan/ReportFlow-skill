@@ -1,0 +1,8 @@
+{
+  "preferred": "weasyprint",
+  "fallbacks": ["chromium", "google-chrome", "microsoft-edge", "wkhtmltopdf"],
+  "available": {"weasyprint": false, "chromium": false, "google-chrome": false, "microsoft-edge": false, "wkhtmltopdf": false},
+  "rasterizers": {"pdftoppm": {"available": true, "path": "pdftoppm (PATH)"}, "mutool": false, "magick": false},
+  "python_runtime": "python3",
+  "notes": "No supported HTML-to-PDF renderer available; pdftoppm is available for post-render rasterization."
+}

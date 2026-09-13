@@ -1,0 +1,4 @@
+evidence_id,claim_id,claim_or_fact,source_id,source_type,status,confidence,notes
+E1,C1,商业航天发射次数,secondary-1,media,Confirmed,medium,二手来源
+E2,C2,某环节收入增长,secondary-2,media,Disputed,low,与E3冲突
+E3,C2,某环节收入增长,filing-1,audited,Disputed,high,口径不同

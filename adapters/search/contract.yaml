@@ -1,0 +1,10 @@
+provider: ""
+title: ""
+url: ""
+source_domain: ""
+published_at: ""
+retrieved_at: ""
+snippet: ""
+extracted_content: ""
+extraction_location: ""
+status: discovered|verified|extraction_failed|unavailable|duplicate

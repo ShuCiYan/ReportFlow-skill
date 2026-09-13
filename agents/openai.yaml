@@ -1,0 +1,7 @@
+interface:
+  display_name: "ReportFlow"
+  short_description: "证据驱动的研究报告全流程工作流"
+  default_prompt: "使用 $reportflow 从研究问题、证据管理到章节复核推进报告。"
+
+policy:
+  allow_implicit_invocation: true

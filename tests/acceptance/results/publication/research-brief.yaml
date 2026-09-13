@@ -1,0 +1,26 @@
+topic: 中国商业航天产业深度研究
+audience: 老板/管理层
+decision_goal: 判断未来3—5年值得投资的环节
+scope: ''
+geography: ''
+time_range: ''
+depth: publication
+architecture:
+- 产业边界与需求现实
+- 关键环节的技术与交付门槛
+- 客户、订单与收入证据
+- 价值捕获与竞争位置
+- 3–5年投资情景、风险与跟踪指标
+priority:
+  core:
+  - 产业边界与需求现实
+  - 关键环节的技术与交付门槛
+  supporting:
+  - 客户、订单与收入证据
+  - 价值捕获与竞争位置
+  - 3–5年投资情景、风险与跟踪指标
+  context: []
+evidence_needs: []
+deliverables:
+- research_report
+- pdf

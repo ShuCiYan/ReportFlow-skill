@@ -1,0 +1,25 @@
+topic: SaaS用户留存下降原因与产品改善
+audience: 老板/管理层
+decision_goal: 定位留存下降原因并确定改善优先级
+scope: ''
+geography: ''
+time_range: ''
+depth: standard
+architecture:
+- 现状：留存下降发生在哪里
+- 原因：哪些行为与产品环节解释流失
+- 验证：如何区分相关与因果
+- 方案：优先修复什么并如何试验
+- 指标：如何验证改善是否持续
+priority:
+  core:
+  - 现状：留存下降发生在哪里
+  - 原因：哪些行为与产品环节解释流失
+  supporting:
+  - 验证：如何区分相关与因果
+  - 方案：优先修复什么并如何试验
+  - 指标：如何验证改善是否持续
+  context: []
+evidence_needs: []
+deliverables:
+- research_brief

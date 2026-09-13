@@ -1,0 +1,12 @@
+id: ""
+name: ""
+category: strategy|market|product|finance|validation|communication
+status: core|extended|experimental
+purpose: ""
+best_for: []
+inputs: []
+outputs: []
+selection_signals: []
+limitations: []
+evidence_required: []
+anti_patterns: []

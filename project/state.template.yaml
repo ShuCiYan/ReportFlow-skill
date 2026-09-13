@@ -1,0 +1,9 @@
+project_id: example-project
+stage: brainstorm
+depth: standard
+active_artifact: research-brief.md
+last_checkpoint: ""
+open_gates: [scope]
+chapters: []
+status: active
+updated_at: ""

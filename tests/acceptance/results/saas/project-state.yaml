@@ -1,0 +1,10 @@
+project_id: test-saas
+stage: brief
+depth: standard
+active_artifact: research-brief.yaml
+last_checkpoint: brief-generated
+open_gates:
+- scope
+chapters: []
+status: active
+updated_at: '2026-09-13'
